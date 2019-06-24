@@ -1,0 +1,143 @@
+<section id="home-heading" class="p-5">
+  <div class="dark-overlay">
+    <div class="row">
+      <div class="col">
+        <div class="container pt-5">
+          <h1 class="display-4">Careers</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <div class="my-5">
+    <div class="row">
+      <!--Instruction and Details-->
+      <div class="col-md-6">
+        <h3>INSTRUCTION</h3>
+        <div>
+          <ul class="list-group">
+            <li class="list-group-item">
+              Submit the form with all required fields.
+            </li>
+            <li class="list-group-item">
+              Telephonic Interview will be scheduled for all registered candidates.
+            </li>
+            <li class="list-group-item">
+              Finalized candidates may report to Triopod centers on their given date provided.
+            </li>
+            <li class="list-group-item">
+              Candidates will receive required training via Video Courses and will be guided from our IT professionals.
+            </li>
+            <li class="list-group-item">
+              After completion of training, candidates will be allotted a project to work upon.
+            </li>
+            <li class="list-group-item">
+              After successfully submition of project, candidates will be awarded internship letter from Triopod
+              Technology.
+            </li>
+          </ul>
+        </div>
+        <!--Corse Details-->
+        <div class="hideBig ">
+          <button class="btn btn-success my-2" [disabled]='careerModel.Course==""' (click)="courseSelect()">View Course
+            Details</button>
+          <span>
+            <p class="text-danger">Select a Course in Form to view Course Detail</p>
+          </span>
+          <div [hidden]='!showCourseDetail'>
+            <p><span class="font-weight-bold text-danger">Course: </span>{{careerName}}</p>
+            <p><span class="font-weight-bold text-danger">Fees: </span>{{fee}}</p>
+            <p><span class="font-weight-bold text-danger">Duration: </span>{{duration}}</p>
+          </div>
+        </div>
+      </div>
+      <!--Form-->
+      <div class="col-md-6 border">
+        <h2>Fill in the Details</h2>
+        <div class="">
+          <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="card p-4" ngModelGroup="careerData">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Program</label>
+                      <select id="program" class="form-control" [(ngModel)]="careerModel.Program" name="program">
+                        <option value="Summer">Summer Training/Internship Program</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Course</label>
+                      <select id="course" class="form-control" [(ngModel)]="careerModel.Course" (change)="courseSelect()"
+                        name="course">
+                        <option value="java">Core Java/Python/C#</option>
+                        <option value="jsp">Advance Java(J2EE,JSP, Servlet, JDBC)</option>
+                        <option value="android">Android(with basics of Core Java/Kotlin)</option>
+                        <option value="bigdata">Big Data/No Sql</option>
+                        <option value="spring">Spring Framework(MVC, Security, Boot)</option>
+                        <option value="hibernate">Spring wth Hibernate</option>
+                        <option value="dotnet">ASP.NET (MVC, Entity Framework, ADO, Core 2.1)</option>
+                        <option value="angular">Angular 7(2+)/React/Vue Js</option>
+                        <option value="fullstack">Full Stack Web Development</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>First Name</label>
+                      <input class="form-control" type="text" [(ngModel)]="careerModel.FirstName" name="firstName"
+                        required>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Last Name</label>
+                      <input class="form-control" type="text" [(ngModel)]="careerModel.LastName" name="lastName"
+                        required>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Email</label>
+                      <input class="form-control" type="text" [(ngModel)]="careerModel.Email" name="email" required
+                        email>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Phone</label>
+                      <input class="form-control" type="text" [(ngModel)]="careerModel.Phone" name="phone" required>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div [hidden]='!showCourseDetail'>
+                      <p><span class="font-weight-bold text-danger">Course: </span>{{careerName}}</p>
+                      <p><span class="font-weight-bold text-danger">Fees: </span>{{fee}}</p>
+                      <p><span class="font-weight-bold text-danger">Duration: </span>{{duration}}</p>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <input type="submit" value="Submit" class="btn btn-outline-success btn-block" [disabled]="!f.valid">
+                  </div>
+                  <div *ngIf="showMsg">
+                    <div class="col-md-12">
+                      <p class="alert alert-success">
+                        <strong>Thank You. Your Details Submitted!</strong>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

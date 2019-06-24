@@ -1,0 +1,27 @@
+<div class="bg-dark text-white d-flex justify-content-between p-1 px-4">
+  <div class="px-1"> <b> Email:</b> <i class="fas fa-envelope-open mx-1"></i>triopodindia@outlook.com</div>
+  <div class="px-1">
+      <b> Phone: </b><i class="fas fa-phone mx-2"></i>011-47529493
+  </div>
+</div>
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+
+  <div class="container">
+      <a href="#" class="navbar-brand py-0"><img src="../../assets/images/logo.png" alt="logo" style="background-size: cover; height: 50px;"></a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navNavbar"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navNavbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+              <a [routerLink]="[ '/']">Home</a></li>
+            <li class="nav-link" routerLinkActive="active">
+              <a [routerLink]="[ '/aboutus']">About Us</a></li>
+            <li class="nav-link" routerLinkActive="active">
+              <a [routerLink]="[ '/services']">Services</a></li>
+            <li class="nav-link" routerLinkActive="active">
+              <a [routerLink]="[ '/careers']">Careers</a></li>
+            <li class="nav-link" routerLinkActive="active">
+              <a [routerLink]="[ '/contactus']">Contact Us</a></li>
+          </ul>
+      </div>
+  </div>
+</nav>
